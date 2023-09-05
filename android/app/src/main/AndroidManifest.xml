@@ -2,13 +2,29 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Added permissions -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+<!-- Add "android:usesCleartextTraffic="true"" in <application> tag to fix release data fetch issue -->
+
     <application
+      android:usesCleartextTraffic="true"
       android:name=".MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <!-- API key not found -->
+      <!-- API key not found.  Check that <meta-data android:name="com.google.android.geo.API_KEY" android:value="your API key"/> is in the <application> element of AndroidManifest.xml
+ -->
+      <meta-data
+      android:name="com.google.android.geo.API_KEY"
+      android:value="AIzaSyDRcBKLh0-mqkeExMyk6mLlr7l3z91oZ3o"/>
+
+      
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

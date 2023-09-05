@@ -7,7 +7,21 @@ https://icons.expo.fyi/Index
 // Google places API
 https://console.cloud.google.com/apis/dashboard?project=flutter-food-delivery-ap-410a9
 
-video: ===> 39.00min
+for Gplaces API video: ===> 39.00min
+
+v: 50: 30
 
 package Name=> com.googlemaprn-->  com.techhub.findplaces
 AppName==> Find Places
+
+// IOS google Map setup (react-native-maps)
+https://youtu.be/VOCRBdzHEqM?si=mwTkaII72Zfs5vFo
+https://github.com/react-native-maps/react-native-maps/blob/master/docs/installation.md
+
+
+// Android (API key not found.  Check that <meta-data android:name="com.google.android.geo.API_KEY" android:value="your API key"/> is in the <application> element of AndroidManifest.xml
+)
+https://stackoverflow.com/questions/45535058/api-key-not-found
+
+
+
