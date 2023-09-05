@@ -3,3 +3,11 @@ https://youtu.be/BaYzZyWm8EI?si=nw1QqUwBVUGKeggg
 
 // Expo Icons
 https://icons.expo.fyi/Index
+
+// Google places API
+https://console.cloud.google.com/apis/dashboard?project=flutter-food-delivery-ap-410a9
+
+video: ===> 39.00min
+
+package Name=> com.googlemaprn-->  com.techhub.findplaces
+AppName==> Find Places
