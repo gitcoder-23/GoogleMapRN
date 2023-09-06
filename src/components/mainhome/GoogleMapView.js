@@ -1,11 +1,12 @@
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import * as Location from 'expo-location';
-import React, {useEffect, useState} from 'react';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import React, {useContext, useEffect, useState} from 'react';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {UserLocationContext} from '../../context/UserLocationContext';
 
 const GoogleMapView = () => {
-  const [loginLoading, setLoginLoading] = useState(false);
+  const [mapRegion, setMapRegion] = useState();
   const [locationError, setLocationError] = useState('');
   const [locationAddress, setLocationAddress] = useState({});
   const [locationTrack, setLocationTrack] = useState();
@@ -59,27 +60,66 @@ const GoogleMapView = () => {
   const locationCheck = address => {
     console.log(address, 'modeFn', address[0].postalCode, address[0].region);
   };
+
+  // Get data by context data taken from App.js
+  const {
+    locationAddressData,
+    setLocationAddressData,
+    locationTrackData,
+    setLocationTrackData,
+  } = useContext(UserLocationContext);
+
+  useEffect(() => {
+    if (locationTrackData && locationTrackData?.coords) {
+      setMapRegion({
+        latitude: locationTrackData?.coords?.latitude,
+        longitude: locationTrackData?.coords?.longitude,
+        latitudeDelta: 0.0522,
+        longitudeDelta: 0.0421,
+      });
+    }
+  }, [locationTrackData]);
+
+  console.log(
+    'locationAddressData@@@->',
+    locationAddressData,
+    locationTrackData,
+  );
+
   return (
     <SafeAreaView style={styles.mapContainer}>
+      <Text
+        style={{
+          fontSize: 20,
+          marginBottom: 10,
+          fontWeight: '600',
+          fontFamily: 'raleway-bold',
+        }}>
+        Top Near By Places
+      </Text>
       <MapView
         style={styles.mapViewStyle}
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
-        zoomEnabled={true}
-        showsCompass={true}
-        zoomControlEnabled={true}
-        showsMyLocationButton={true}
-        userLocationCalloutEnabled={true}
-        minZoomLevel={5}
-        maxZoomLevel={10}
-        scrollEnabled={true}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
+        // zoomEnabled={true}
+        // showsCompass={true}
+        // zoomControlEnabled={true}
+        // showsMyLocationButton={true}
+        // userLocationCalloutEnabled={true}
+        // minZoomLevel={5}
+        // maxZoomLevel={10}
+        // scrollEnabled={true}
+        region={mapRegion}
+        // initialRegion={mapRegion}
+        // initialRegion={{
+        //   latitude: 37.78825,
+        //   longitude: -122.4324,
+        //   latitudeDelta: 0.0922,
+        //   longitudeDelta: 0.0421,
+        // }}
+      >
+        <Marker title={locationAddressData[0]?.city} coordinate={mapRegion} />
+      </MapView>
     </SafeAreaView>
   );
 };
