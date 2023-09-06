@@ -15,7 +15,7 @@ https://developers.google.com/maps/documentation/places/web-service/overview
 // Places Type
 https://developers.google.com/maps/documentation/places/web-service/supported_types
 
-v: 50: 30
+v: 1:22:30
 
 package Name=> com.googlemaprn-->  com.techhub.findplaces
 AppName==> Find Places
