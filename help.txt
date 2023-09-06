@@ -9,6 +9,12 @@ https://console.cloud.google.com/apis/dashboard?project=flutter-food-delivery-ap
 
 for Gplaces API video: ===> 39.00min
 
+// Google Places API docs
+https://developers.google.com/maps/documentation/places/web-service/overview
+
+// Places Type
+https://developers.google.com/maps/documentation/places/web-service/supported_types
+
 v: 50: 30
 
 package Name=> com.googlemaprn-->  com.techhub.findplaces
